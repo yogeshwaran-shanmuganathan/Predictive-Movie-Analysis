@@ -1,0 +1,35 @@
+## Create Actor
+LOAD CSV WITH HEADERS FROM "file:///Actor.csv" AS line CREATE(a:Actor) SET a={actor_id:line.ActorId, afirstname:line.AFirstName,alastname:line.ALastName,agender:line.AGender} RETURN a
+## Create Cast
+LOAD CSV WITH HEADERS FROM "file:///Cast.csv" AS line CREATE(c:Cast) SET c={cast_id:line.CastID,director_id:line.DirectorID,actor_id:line.ActorId} RETURN c
+## Create Director
+LOAD CSV WITH HEADERS FROM "file:///Director.csv" AS line CREATE(d:Director) SET d={director_id:line.DirectorId,dfirstname:line.DFirstName,dlastname:line.DLastName,dgender:line.Dgender} RETURN d
+## Create Location
+LOAD CSV WITH HEADERS FROM "file:///Location.csv" AS line CREATE(l:Location) SET l={location_id:line.LocationId,region:line.Region,country:line.Country,continent:line.Continet} RETURN l
+## Create Movie
+LOAD CSV WITH HEADERS FROM "file:///Movie.csv" AS line CREATE(m:Movie) SET m={movie_id:line.MovieId,mname:line.MName,mrating:line.Mrating,mgenre:line.Mgenre,date:line.Date,cast_id:line.CastID,location_id:line.LocationID} RETURN m
+## Create Sales
+LOAD CSV WITH HEADERS FROM "file:///Sales.csv" AS line CREATE(s:Sales) SET s={sales_id:line.SalesId,noticketssold:line.NoTicketsSold,priceofticket:line.PriceofTicket,location_id:line.LocationID} RETURN s
+## Creating Constraint script for Unique Value:
+CREATE CONSTRAINT ON(a:Actor) ASSERT a.actor_id IS UNIQUE
+CREATE CONSTRAINT ON(c:Cast) ASSERT c.cast_id IS UNIQUE
+CREATE CONSTRAINT ON(d:Director) ASSERT d.director_id IS UNIQUE
+CREATE CONSTRAINT ON(l:Location) ASSERT l.location_id IS UNIQUE
+CREATE CONSTRAINT ON(m:Movie) ASSERT m.movie_id IS UNIQUE
+CREATE CONSTRAINT ON(s:Sales) ASSERT s.sales_id IS UNIQUE
+
+## MATCH QUERY:
+## Query_1
+MATCH (l:Location),(s:Sales) WHERE l.location_id=s.location_id CREATE (l)-[r:Sales_in_location]- >(s) RETURN l,s,r
+## Query_2
+MATCH (a:Actor),(c:Cast),(d:Director) WHERE a.actor_id=c.actor_id AND c.director_id=d.director_id CREATE (a)-[r:Cast{cast_id:c.cast_id}]- >(d) RETURN a, c, d, r
+## Query_3
+MATCH (l:Location),(m:Movie),(c:Cast) WHERE l.location_id=m.location_id AND m.cast_id=c.cast_id CREATE (l)-[r:Movie{movie_id:m.movie_id,mname:m.mname,mrating:m.mrating,mgenre:m.mgenre,date:m.date}]- >(c) RETURN l,m,c,r
+## Query_4
+MATCH (s:Sales),(l:Location),(m:Movie) WHERE s.location_id=l.location_id AND l.location_id=m.location_id CREATE (s)-[r:Location{region:l.region,country:l.country,continent:l.continent}]- >(m) RETURN s,l,m,r
+## Query_5
+MATCH (m:Movie),(c:Cast) WHERE m.cast_id=c.cast_id CREATE (m)-[r:Movie_Cast]- > (c) RETURN m,r,c
+## Query_6
+MATCH (m:Movie),(c:Cast),(a:Actor) WHERE m.cast_id=c.cast_id AND c.actor_id=a.actor_id CREATE (m)-[r:Actor_of]- > (c) RETURN m,c,a,r limit 5
+## Query_7
+MATCH (m:Movie),(c:Cast),(d:Director) WHERE m.cast_id=c.cast_id AND c.director_id=d.director_id CREATE (m)-[r:Director_of]- > (c) RETURN m,c,d,r limit 5
