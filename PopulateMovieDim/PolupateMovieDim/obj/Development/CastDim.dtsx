@@ -1,0 +1,633 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/23/2020 7:53:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-E20FGN53"
+  DTS:CreatorName="LAPTOP-E20FGN53\Adarsh"
+  DTS:DTSID="{BB68908F-C272-4E88-954F-33A7B329FCCB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="6153"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{0D459746-DBAB-48A4-A309-D91858D9E8DF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-E20FGN53.MovieSales_DW]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{C5FC4DB5-0260-49B6-B5EC-F9632F7845B7}"
+      DTS:ObjectName="LAPTOP-E20FGN53.MovieSales_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-E20FGN53;Initial Catalog=MovieSales_DW;Integrated Security=True;Application Name=SSIS-Package-{C5FC4DB5-0260-49B6-B5EC-F9632F7845B7}LAPTOP-E20FGN53.MovieSales_DW;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-E20FGN53.Movie_database]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{D324DCB1-795F-4010-9678-EB32ABD75A89}"
+      DTS:ObjectName="LAPTOP-E20FGN53.Movie_database">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-E20FGN53;Initial Catalog=Movie_database;Integrated Security=True;Application Name=SSIS-Package-{D324DCB1-795F-4010-9678-EB32ABD75A89}LAPTOP-E20FGN53.Movie_database;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E7486029-B469-4A84-AEAA-4934C45B330B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Cast"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Cast"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT Cast.CastID, Cast.DirectorID, Cast.ActorId, Actor.ActorId AS Expr1, Actor.AFirstName, Actor.ALastName, Actor.AGender, Director.DirectorId AS Expr2, Director.DFirstName, Director.DLastName, Director.Dgender
+FROM     Actor INNER JOIN
+                  Cast ON Actor.ActorId = Cast.ActorId INNER JOIN
+                  Director ON Cast.DirectorID = Director.DirectorId</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Cast.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-E20FGN53.Movie_database]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-E20FGN53.Movie_database]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[CastID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[CastID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[CastID]"
+                      name="CastID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[DirectorID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[DirectorID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[DirectorID]"
+                      name="DirectorID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[ActorId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[ActorId]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[ActorId]"
+                      name="ActorId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[Expr1]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[Expr1]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[Expr1]"
+                      name="Expr1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[AFirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[AFirstName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[AFirstName]"
+                      name="AFirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[ALastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[ALastName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[ALastName]"
+                      name="ALastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[AGender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[AGender]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[AGender]"
+                      name="AGender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[Expr2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[Expr2]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[Expr2]"
+                      name="Expr2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[DFirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[DFirstName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[DFirstName]"
+                      name="DFirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[DLastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[DLastName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[DLastName]"
+                      name="DLastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[Dgender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[Dgender]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[Dgender]"
+                      name="Dgender"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[CastID]"
+                      dataType="wstr"
+                      length="50"
+                      name="CastID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[DirectorID]"
+                      dataType="wstr"
+                      length="50"
+                      name="DirectorID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[ActorId]"
+                      dataType="i4"
+                      name="ActorId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[Expr1]"
+                      dataType="i4"
+                      name="Expr1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[AFirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="AFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[ALastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ALastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[AGender]"
+                      dataType="wstr"
+                      length="50"
+                      name="AGender" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[Expr2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Expr2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[DFirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="DFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[DLastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="DLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].ExternalColumns[Dgender]"
+                      dataType="wstr"
+                      length="50"
+                      name="Dgender" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[CastID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[CastID]"
+                      name="CastID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[DirectorID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[DirectorID]"
+                      name="DirectorID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[ActorId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[ActorId]"
+                      name="ActorId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[Expr1]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[Expr1]"
+                      name="Expr1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[AFirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[AFirstName]"
+                      name="AFirstName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[ALastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[ALastName]"
+                      name="ALastName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[AGender]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[AGender]"
+                      name="AGender" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[Expr2]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[Expr2]"
+                      name="Expr2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[DFirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[DFirstName]"
+                      name="DFirstName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[DLastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[DLastName]"
+                      name="DLastName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[Dgender]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[Dgender]"
+                      name="Dgender" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\CastDim"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="CastDim"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."CastDim"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\CastDim.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-E20FGN53.MovieSales_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-E20FGN53.MovieSales_DW]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].Columns[CastID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CastID"
+                      externalMetadataColumnId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[CastID]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[CastID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].Columns[DirectorID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DirectorID"
+                      externalMetadataColumnId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[DirectorId]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[DirectorID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].Columns[ActorId]"
+                      cachedDataType="i4"
+                      cachedName="ActorId"
+                      externalMetadataColumnId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[ActorID]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[ActorId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].Columns[AFirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AFirstName"
+                      externalMetadataColumnId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[AFirstName]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[AFirstName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].Columns[ALastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ALastName"
+                      externalMetadataColumnId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[ALastName]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[ALastName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].Columns[AGender]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AGender"
+                      externalMetadataColumnId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[AGender]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[AGender]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].Columns[DFirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DFirstName"
+                      externalMetadataColumnId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[DFirstName]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[DFirstName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].Columns[DLastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DLastName"
+                      externalMetadataColumnId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[DLastName]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[DLastName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].Columns[Dgender]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Dgender"
+                      externalMetadataColumnId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[Dgender]"
+                      lineageId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output].Columns[Dgender]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[CastKey]"
+                      dataType="i4"
+                      name="CastKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[CastID]"
+                      dataType="wstr"
+                      length="50"
+                      name="CastID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[ActorID]"
+                      dataType="i4"
+                      name="ActorID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[AFirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="AFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[ALastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ALastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[AGender]"
+                      dataType="wstr"
+                      length="50"
+                      name="AGender" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[DirectorId]"
+                      dataType="wstr"
+                      length="50"
+                      name="DirectorId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[DFirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="DFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[DLastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="DLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input].ExternalColumns[Dgender]"
+                      dataType="wstr"
+                      length="50"
+                      name="Dgender" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\CastDim.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CastDim.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CastDim.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CastDim.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CastDim.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[ADO NET Source Output]"
+              endId="Package\Data Flow Task\CastDim.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Data Flow Task\Cast.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="98.4,41.6"
+          Id="Package\Data Flow Task\Cast"
+          TopLeft="186.3,57.5" />
+        <NodeLayout
+          Size="117.6,41.6"
+          Id="Package\Data Flow Task\CastDim"
+          TopLeft="240.8,161.6" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ADO NET Source Output]"
+          TopLeft="235.5,99.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.1000000000001,62.5000000000002"
+              Start="0,0"
+              End="64.1000000000001,55.0000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.2500000000001"
+                    Point2="0,31.2500000000001"
+                    Point3="4,31.2500000000001" />
+                  <mssgle:LineSegment
+                    End="60.1000000000001,31.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.1000000000001,31.2500000000001"
+                    Point2="64.1000000000001,31.2500000000001"
+                    Point3="64.1000000000001,35.2500000000001" />
+                  <mssgle:LineSegment
+                    End="64.1000000000001,55.0000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
