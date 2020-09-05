@@ -1,0 +1,51 @@
+DirectorId,DFirstName,DLastName,Dgender,MovieId,MName,MRank,Mgenre,ActorId,AFirstName,ALastName,AGender,SalesID,NoTicketsSold,PriceofTicket,LocationID,Region,Country,Continent,Date_ID,Day,Week,Month,Year,Decade
+tt0012349,James,Gunn,Male ,12345561,Guardians of the Galaxy,8.1,"Action,Adventure,Sci-Fi",1,Chris,Pratt,Male ,9621,5000,250,34,Mumbai,India,Asia,16-12-2014,16,3,12,2014,201
+tt0015864,Ridley,Scott,Female,12345562,Prometheus,7,"Adventure,Mystery,Sci-Fi",2,Noomi,Rapace,Female,9622,5001,250,24,Bangalore,India,Asia,14-11-2014,14,2,11,2014,201
+tt0017136,M.,Night,Male ,12345563,Split,7.3,"Horror,Thriller",3,James,McAvoy,Male ,9623,5002,250,16,Sydney,Australia,Australia,30-01-2015,30,5,1,2015,201
+tt0014532,Christophe,Lourdelet,Female,12345564,Sing,7.2,"Animation,Comedy,Family",4,Matthew,McConaughey,Female,9624,5003,250,13,Queensland,Australia,Australia,16-08-2018,16,3,8,2018,201
+tt0021749,David,Ayer,Male ,12345565,Suicide Squad,6.2,"Action,Adventure,Fantasy",5,Will,Smith,Male ,9625,5004,250,19,Melbourne,Australia,Australia,16-12-2014,16,3,12,2014,201
+tt0022100,Yimou,Zhang,Female,12345566,The Great Wall,6.1,"Action,Adventure,Fantasy",6,Matt,Damon,Female,9626,5005,250,23,Galway,Ireland,Europe,14-11-2014,14,2,11,2014,201
+tt0025316,Damien,Chazelle,Male ,12345567,La La Land,8.3,"Comedy,Drama,Music",7,Ryan,Gosling,Male ,9627,5006,250,29,Limerick,Ireland,Europe,30-01-2015,30,5,1,2015,201
+tt0027977,Sean,Foley,Male ,12345568,Mindhorn,6.4,Comedy,8,Essie,Davis,Male ,9628,5007,250,20,Cork,Ireland,Europe,16-08-2018,16,3,8,2018,201
+tt0031381,James,Gray,Male ,12345569,The Lost City of Z,7.1,"Action,Adventure,Biography",9,Charlie,Hunnam,Male ,9629,5008,250,42,Newyork,USA,North America,16-12-2014,16,3,12,2014,201
+tt0031679,Morten,Tyldum,Female,12345570,Passengers,7,"Adventure,Drama,Romance",10,Jennifer,Lawrence,Female,9630,4400,250,50,Boston,USA,North America,17-02-2014,17,3,2,2014,201
+tt0032138,David,Yates,Male ,12345571,Fantastic Beasts and Where to Find Them,7.5,"Adventure,Family,Fantasy",11,Eddie,Redmayne,Male ,9631,5010,250,12,Paris,France,Europe,30-01-2015,30,5,1,2015,201
+tt0032551,Theodore,Melfi,Male ,12345572,Hidden Figures,7.8,"Biography,Drama,History",12,Taraji,P.,Male ,9632,3500,250,18,Berlin,Germany,Europe,16-08-2018,16,3,8,2018,201
+tt0032553,Gareth,Edwards,Male ,12345573,Rogue One,7.9,"Action,Adventure,Sci-Fi",13,Felicity,Jones,Male ,9633,5012,250,34,Mumbai,India,Asia,14-12-2014,14,2,12,2014,201
+tt0032976,Ron,Clements,Male ,12345574,Moana,7.7,"Animation,Adventure,Comedy",14,Auli'i,Cravalho,Male ,9634,5013,250,24,Bangalore,India,Asia,14-07-2014,14,2,7,2014,201
+tt0033467,Nacho,Vigalondo,Male ,12345575,Colossal,6.4,"Action,Comedy,Drama",15,Anne,Hathaway,Male ,9635,6000,350,16,Sydney,Australia,Australia,30-03-2015,30,5,3,2015,201
+tt0033870,Chris,Renaud,Male ,12345576,The Secret Life of Pets,6.6,"Animation,Adventure,Comedy",16,Louis,C.K.,Male ,9636,6000,350,13,Queensland,Australia,Australia,16-08-2018,16,3,8,2018,201
+tt0034583,Mel,Gibson,Male ,12345577,Hacksaw Ridge,8.2,"Biography,Drama,History",17,Andrew,Garfield,Male ,9637,6000,350,19,Melbourne,Australia,Australia,14-12-2014,14,2,12,2014,201
+tt0036775,Paul,Greengrass,Female,12345578,Jason Bourne,6.7,"Action,Thriller",18,Matt,Damon,Female,9638,6000,350,23,Galway,Ireland,Europe,14-11-2014,14,2,11,2014,201
+tt0036868,Garth,Davis,Male ,12345579,Lion,8.1,"Biography,Drama",19,Dev,Patel,Male ,9639,6000,350,29,Limerick,Ireland,Europe,30-01-2015,30,5,1,2015,201
+tt0038355,Denis,Villeneuve,Female,12345580,Arrival,8,"Drama,Mystery,Sci-Fi",20,Amy,Adams,Female,9640,6000,350,20,Cork,Ireland,Europe,16-08-2018,16,3,8,2018,201
+tt0038650,Stephen,Gaghan,Male ,12345581,Gold,6.7,"Adventure,Drama,Thriller",21,Matthew,McConaughey,Male ,9641,6000,350,42,Newyork,USA,North America,16-12-2014,16,3,12,2014,201
+tt0038787,Kenneth,Lonergan,Female,12345582,Manchester by the Sea,7.9,Drama,22,Casey,Affleck,Female,9642,6000,350,50,Boston,USA,North America,17-02-2014,17,3,2,2014,201
+tt0040522,Ben,Young,Female,12345583,Hounds of Love,6.7,"Crime,Drama,Horror",23,Emma,Booth,Female,9643,6000,350,12,Paris,France,Europe,30-01-2015,30,5,1,2015,201
+tt0040746,Walt,Dohrn,Female,12345584,Trolls,6.5,"Animation,Adventure,Comedy",24,Anna,Kendrick,Female,9644,6000,350,18,Berlin,Germany,Europe,16-08-2018,16,3,8,2018,201
+tt0040897,Roland,Emmerich,Female,12345585,Independence Day: Resurgence,5.3,"Action,Adventure,Sci-Fi",25,Liam,Hemsworth,Female,9645,6000,350,34,Mumbai,India,Asia,14-12-2014,14,2,12,2014,201
+tt0041959,Dominique,Abel,Female,12345586,Paris pieds nus,6.8,Comedy,26,Fiona,Gordon,Female,9646,5065,350,24,Bangalore,India,Asia,14-07-2014,14,2,7,2014,201
+tt0042192,S.S.,Rajamouli,Male ,12345587,Bahubali: The Beginning,8.3,"Action,Adventure,Drama",27,Prabhas,,Male ,9647,5066,750,16,Sydney,Australia,Australia,30-03-2015,30,5,3,2015,201
+tt0042876,Phillip,Guzman,Female,12345588,Dead Awake,4.7,"Horror,Thriller",28,Jocelin,Donahue,Female,9648,5067,750,13,Queensland,Australia,Australia,16-08-2018,16,3,8,2018,201
+tt0043014,Jon,Lucas,Male ,12345589,Bad Moms,6.2,Comedy,29,Mila,Kunis,Male ,9649,5068,750,19,Melbourne,Australia,Australia,14-12-2014,14,2,12,2014,201
+tt0044079,Justin,Kurzel,Female,12345590,Assassin's Creed,5.9,"Action,Adventure,Drama",30,Michael,Fassbender,Female,9650,5069,750,23,Galway,Ireland,Europe,16-12-2014,16,3,12,2014,201
+tt0044706,John,Hamburg,Male ,12345591,Why Him?,6.3,Comedy,31,Zoey,Deutch,Male ,9651,5070,750,29,Limerick,Ireland,Europe,14-11-2014,14,2,11,2014,201
+tt0044741,Tom,Ford,Female,12345592,Nocturnal Animals,7.5,"Drama,Thriller",32,Amy,Adams,Female,9652,5071,750,20,Cork,Ireland,Europe,30-01-2015,30,5,1,2015,201
+tt0045152,Bryan,Singer,Male ,12345593,X-Men: Apocalypse,7.1,"Action,Adventure,Sci-Fi",33,James,McAvoy,Male ,9653,5072,750,42,Newyork,USA,North America,16-08-2018,16,3,8,2018,201
+tt0046250,Tim,Miller,Female,12345594,Deadpool,8,"Action,Adventure,Comedy",34,Ryan,Reynolds,Female,9654,5073,750,50,Boston,USA,North America,16-12-2014,16,3,12,2014,201
+tt0046359,Paul,W.S.,Male ,12345595,Resident Evil: The Final Chapter,5.6,"Action,Horror,Sci-Fi",35,Milla,Jovovich,Male ,9655,5074,750,12,Paris,France,Europe,14-11-2014,14,2,11,2014,201
+tt0046911,Anthony,Russo,Male ,12345596,Captain America: Civil War,7.9,"Action,Adventure,Sci-Fi",36,Chris,Evans,Male ,9656,5035,400,18,Berlin,Germany,Europe,30-01-2015,30,5,1,2015,201
+tt0046912,Christopher,Nolan,Female,12345597,Interstellar,8.6,"Adventure,Drama,Sci-Fi",37,Matthew,McConaughey,Female,9657,5500,400,34,Mumbai,India,Asia,16-08-2018,16,3,8,2018,201
+tt0047296,Scott,Derrickson,Female,12345598,Doctor Strange,7.6,"Action,Adventure,Fantasy",38,Benedict,Cumberbatch,Female,9658,5037,400,24,Bangalore,India,Asia,16-12-2014,16,3,12,2014,201
+tt0047396,Antoine,Fuqua,Female,12345599,The Magnificent Seven,6.9,"Action,Adventure,Western",39,Denzel,Washington,Female,9659,5038,400,16,Sydney,Australia,Australia,17-02-2014,17,3,2,2014,201
+tt0047478,Patrick,Read,Female,12345600,5- 25- 77,7.1,"Comedy,Drama",40,John,Francis,Female,9660,5039,400,13,Queensland,Australia,Australia,30-01-2015,30,5,1,2015,201
+tt0047528,Greg,Tiernan,Male ,12345601,Sausage Party,6.3,"Animation,Adventure,Comedy",41,Seth,Rogen,Male ,9661,5555,400,19,Melbourne,Australia,Australia,16-08-2018,16,3,8,2018,201
+tt0048424,Barry,Jenkins,Female,12345602,Moonlight,7.5,Drama,42,Mahershala,Ali,Female,9662,5041,400,23,Galway,Ireland,Europe,14-12-2014,14,2,12,2014,201
+tt0049406,Shawn,Burkett,Male ,12345603,Don't Fuck in the Woods,2.7,Horror,43,Brittany,Blanton,Male ,9663,5042,400,29,Limerick,Ireland,Europe,14-07-2014,14,2,7,2014,201
+tt0050083,John,Lee,Female,12345604,The Founder,7.2,"Biography,Drama,History",44,Michael,Keaton,Female,9664,7000,400,20,Cork,Ireland,Europe,30-03-2015,30,5,3,2015,201
+tt0050212,Ricardo,de,Male ,12345605,Lowriders,6.3,Drama,45,Gabriel,Chavarria,Male ,9665,5044,400,42,Newyork,USA,North America,16-08-2018,16,3,8,2018,201
+tt0050825,Rob,Marshall,Female,12345606,Pirates of the Caribbean: On Stranger Tides,6.7,"Action,Adventure,Fantasy",46,Johnny,Depp,Female,9666,5045,400,50,Boston,USA,North America,14-12-2014,14,2,12,2014,201
+tt0050976,John,Madden,Male ,12345607,Miss Sloane,7.3,"Drama,Thriller",47,Jessica,Chastain,Male ,9667,7500,400,12,Paris,France,Europe,14-11-2014,14,2,11,2014,201
+tt0050986,Scott,Hicks,Female,12345608,Fallen,5.6,"Adventure,Drama,Fantasy",48,Hermione,Corfield,Female,9668,5047,400,18,Berlin,Germany,Europe,30-01-2015,30,5,1,2015,201
+tt0051201,Justin,Lin,Male ,12345609,Star Trek Beyond,7.1,"Action,Adventure,Sci-Fi",49,Chris,Pine,Male ,9669,5048,400,34,Mumbai,India,Asia,16-08-2018,16,3,8,2018,201
+tt0041300,Barry ,Sonnenfeld,Female,12345610,The Last Face,3.7,Drama,50,Charlize,Theron,Female,9670,5049,400,24,Bangalore,India,Asia,16-12-2014,16,3,12,2014,201
